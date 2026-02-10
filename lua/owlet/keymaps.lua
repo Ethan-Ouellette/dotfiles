@@ -26,5 +26,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 -- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Yank/Paste to system clipboard with leader key
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "[Y]ank to system clipboard" })
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "[P]aste to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to system clipboard" })
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "[P]aste from system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to system clipboard" })
+vim.keymap.set("n", "<leader>P", '"+P', { desc = "[P]aste from system clipboard" })
