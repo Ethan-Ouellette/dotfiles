@@ -129,12 +129,12 @@ config.keys = {
 	split_nav("resize", "l"),
 	{
 		key = "h",
-		mods = "CMD|SHIFT",
+		mods = "CMD|CTRL",
 		action = act.ActivateTab(0),
 	},
 	{
 		key = "j",
-		mods = "CMD|SHIFT",
+		mods = "CMD|CTRL",
 		action = act.ActivateTab(1),
 	},
 	{
@@ -144,17 +144,17 @@ config.keys = {
 	},
 	{
 		key = "l",
-		mods = "CMD|SHIFT",
+		mods = "CMD|CTRL",
 		action = act.ActivateTab(3),
 	},
 	{
 		key = "n",
-		mods = "CMD|SHIFT",
+		mods = "CMD|CTRL",
 		action = act.ActivateTabRelative(1),
 	},
 	{
 		key = "p",
-		mods = "CMD|SHIFT",
+		mods = "CMD|CTRL",
 		action = act.ActivateTabRelative(-1),
 	},
 	scrollback_or_send("u", -0.5),
