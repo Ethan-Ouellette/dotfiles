@@ -2,6 +2,8 @@
 -- Re-enable when https://github.com/pmizio/typescript-tools.nvim fixes 0.12 compatibility.
 -- Also re-comment ts_ls in lsp.lua when switching back.
 
+return {}
+
 -- return {
 -- 	{
 -- 		"pmizio/typescript-tools.nvim",
