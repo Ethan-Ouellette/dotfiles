@@ -30,7 +30,7 @@ config.font_size = 12
 
 -- color scheming
 -- The set of schemes that we like and want to put in our rotation
-local schemes = { "Abernathy" }
+local schemes = { "Navy and Ivory (terminal.sexy)" }
 -- for name, scheme in pairs(wezterm.get_builtin_color_schemes()) do
 -- 	table.insert(schemes, name)
 -- end
