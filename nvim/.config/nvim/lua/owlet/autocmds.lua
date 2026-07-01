@@ -80,16 +80,18 @@ vim.diagnostic.config({
     virtual_text = { source = "if_many", spacing = 2 },
 })
 
--- After all plugins load: broadcast blink.cmp capabilities then enable servers.
--- vim.lsp.enable() retroactively attaches to already-open buffers, so this
--- works correctly when opening nvim with a file argument.
-vim.api.nvim_create_autocmd("User", {
-    pattern = "LazyDone",
+-- Broadcast blink.cmp capabilities and enable servers after VimEnter.
+-- vim.schedule defers until after lazy.nvim's own VimEnter handler fires
+-- (which loads blink.cmp), since autocmds.lua is sourced before lazy.lua
+-- and our handler is therefore registered — and fires — first.
+vim.api.nvim_create_autocmd("VimEnter", {
     once = true,
     callback = function()
-        vim.lsp.config("*", {
-            capabilities = require("blink.cmp").get_lsp_capabilities(),
-        })
-        vim.lsp.enable({ "clangd", "pyright", "rust_analyzer", "vtsls", "lua_ls" })
+        vim.schedule(function()
+            vim.lsp.config("*", {
+                capabilities = require("blink.cmp").get_lsp_capabilities(),
+            })
+            vim.lsp.enable({ "clangd", "pyright", "rust_analyzer", "vtsls", "lua_ls" })
+        end)
     end,
 })
