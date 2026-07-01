@@ -115,7 +115,7 @@ return {
 					---@param bufnr? integer some lsp support methods only in specific files
 					---@return boolean
 					local function client_supports_method(client, method, bufnr)
-						if vim.fn.has("nvim-0.11") == 1 then
+						if vim.fn.has("nvim-0.12") == 1 then
 							return client:supports_method(method, bufnr)
 						else
 							return client.supports_method(method, { bufnr = bufnr })
@@ -230,14 +230,7 @@ return {
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				-- ts_ls = {},
-				--
-				vtsls = {
-					root_dir = function(bufnr, on_dir)
-						local root_markers = { ".git" }
-						local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()
-						on_dir(project_root)
-					end,
-				},
+				vtsls = {},
 
 				lua_ls = {
 					-- cmd = { ... },
